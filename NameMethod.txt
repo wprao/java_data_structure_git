@@ -1,0 +1,23 @@
+Naming Method:
+
+
+class:                class ABigApple {
+
+class variable:       mAppleSize;
+
+class method:         IsApple/GetAppleSize
+
+parameters in method function:  func(int aAppleSize)
+
+variables :            apple_eat_num;
+
+
+reference variables:   rStringApple;
+
+global variables:      gApplePen;
+
+constant :             APPLE_PEN_NUM;
+
+static :               sAppleSize;
+
+function :           do_good_apple;
