@@ -1,0 +1,31 @@
+一、git状态指令
+git status  查看git状态
+git log     查看git历史记录
+git reflog  查看git历史记录
+git reset --hard commit-id   恢复到某一个版本
+
+二、git 添加和提交
+git add XXXX文件名
+git commit -m "说明版本的情况记录"
+
+三、本地同步到远程github
+a.本地新建一个项目，并且与github上的一个repository名字一样。
+b.用terminal进入到本地目录，输入git init，初始化本地项目的git路径
+c.配置git 邮箱和名字
+	  git config --global user.email"xxxx@xxxx.com"
+	  git config --global user.name"xxxx"
+d.添加项目文件 git add XXXX
+e.提交项目文件 git commit -m "说明"
+f.在github上面新建一个repository，保证名称与本地一致
+g.删除本地和远程的映射 git remote rm origin
+h.添加映射 git remote add origin git@github.com:wprao/java_data_structure_git.git
+i.第一次同步 git push -u origin master
+j.后面同步git push origin master
+
+三、增加ssh_key
+a.本地增加ssh指令   ssh-keygen -t rsa -C "XXXX@XXX.com"
+b.打开home/计算机名称/.ssh/id_rsa.pub.
+c.复制里面的文字添加到github设置的ssh_key中。
+
+四、远程克隆项目到本地
+git clone git@github.com:wprao/java_data_structure_git.git
