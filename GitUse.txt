@@ -12,8 +12,8 @@ git commit -m "说明版本的情况记录"
 a.本地新建一个项目，并且与github上的一个repository名字一样。
 b.用terminal进入到本地目录，输入git init，初始化本地项目的git路径
 c.配置git 邮箱和名字
-	  git config --global user.email"xxxx@xxxx.com"
-	  git config --global user.name"xxxx"
+	  git config --global user.email "xxxx@xxxx.com"
+	  git config --global user.name "xxxx"
 d.添加项目文件 git add XXXX
 e.提交项目文件 git commit -m "说明"
 f.在github上面新建一个repository，保证名称与本地一致
