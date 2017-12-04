@@ -93,10 +93,12 @@ class SortCompare
 			    mArray[left-1] = mArray[left];
 			else
 			    {
-				mArray[left-1] = temp;
 				break;
 			    }
 		    }
+		if(mArray[insert_value] != temp)
+		    mArray[left-1] = temp;
+		
 	       
 	    }
 	
