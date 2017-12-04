@@ -87,6 +87,53 @@ class Reverse
 }
 
 
+class Bracket
+{
+    private String mBracketString;
+    
+    public Bracket(String value)
+    {
+	mBracketString = value;
+    }
+
+    //a{d[s(d)s]a}ss  is ok;
+    //if brackets is not in pairs; return which char is not equal;
+    public String check()
+    {
+	StackX stk = new StackX(mBracketString.length());
+	char ch;
+	for(int i=0;i<mBracketString.length();i++)
+	    {
+		ch = mBracketString.charAt(i);
+		switch(ch)
+		    {
+		    case '{':
+		    case '[':
+		    case '(':
+			stk.push((long)ch);
+			break;
+		    case '}':
+		    case ']':
+		    case ')':
+			char chx = (char)stk.pop();
+			if((ch == '}' && chx != '{')||
+			   (ch == ']' && chx != '[')||
+			   (ch == ')' && chx != '('))
+			    {
+				return ("Error in char"+i);
+			    }
+		    }
+	    }
+	return "It's OK";
+    }
+    
+    
+}
+
+
+
+
+
 class StackApp
 {
     public static void main(String args[])
@@ -108,6 +155,12 @@ class StackApp
 	Reverse rev = new Reverse("Hello,World!Java Data Structure & Algorithm");
 	System.out.println("Hello,World!Java Data Structure & Algorithm");
 	System.out.println(rev.ReverseString());
+
+	Bracket bra = new Bracket("a{dsa[das(ss)sss]ss}sss");
+	Bracket bra2 = new Bracket("a{dsa[das(sssss]ss}sss");
+
+	System.out.println(bra.check());
+	System.out.println(bra2.check());
 	
     }
 }
