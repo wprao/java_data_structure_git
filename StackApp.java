@@ -54,6 +54,39 @@ class StackX
 }
 
 
+class Reverse
+{
+    private String mInput;
+    private String mOutput;
+
+    public Reverse(String value)
+    {
+	mInput = value;
+	mOutput = "";
+    }
+
+    public String ReverseString()
+    {
+	StackX stk = new StackX(mInput.length());
+
+	
+	for(int i=0;i<mInput.length();i++)
+	    {
+		stk.push((long)mInput.charAt(i));
+	    }
+
+	for(int i=0;i<mInput.length();i++)
+	    {
+		char ch = (char)stk.pop();
+		mOutput += ch; 
+	    }
+	return mOutput;
+	
+    }
+    
+}
+
+
 class StackApp
 {
     public static void main(String args[])
@@ -70,6 +103,11 @@ class StackApp
 		System.out.print(stk.pop()+" ");
 	    }
 	System.out.println(" ");
+
+
+	Reverse rev = new Reverse("Hello,World!Java Data Structure & Algorithm");
+	System.out.println("Hello,World!Java Data Structure & Algorithm");
+	System.out.println(rev.ReverseString());
 	
     }
 }
