@@ -1,5 +1,14 @@
 Big "O" statement is used to show complexity of the program.
 Such as "O(1)  O(log(n))  O(n)  O(n*log(n))  O(n^2)"
 
+Linear searching time :  O(N)
+Half searching time:     O(log(N))
+No order array insert time:    O(1)
+Order array insert time :  O(N)
+No order array delete time:  O(N)
+Order array delete time:   O(N)
+
+ 
+
 
 
