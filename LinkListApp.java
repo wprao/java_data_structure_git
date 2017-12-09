@@ -1,6 +1,6 @@
 class Link
 {
-    private long mData;
+    public long mData;
     public Link mNext;
 
     public Link(long value,Link next)
@@ -29,7 +29,7 @@ class LinkList
 	return (mFirst == null);
     }
 
-    public void insert(long value)
+    public void insertFirst(long value)
     {
 	Link linkInsert = new Link(value,mFirst);
 	mFirst = linkInsert;
@@ -40,6 +40,51 @@ class LinkList
 	mFirst = mFirst.mNext;
 	return temp;
     }
+
+
+    public Link find(long value)
+    {
+	Link currentLink;
+	currentLink = mFirst;
+	while(currentLink != null)
+	    {
+		if(currentLink.mData == value)
+		    return currentLink;
+
+		currentLink = currentLink.mNext;
+	    }
+	return null;
+    }
+
+    public boolean delete(long value)
+    {
+	Link currentLink;
+	Link previousLink;
+	currentLink = mFirst;
+	previousLink = currentLink;
+	while(currentLink != null)
+	    {
+		if(currentLink.mData == value)
+		    {
+			if(currentLink != mFirst)
+			    {
+				previousLink.mNext = currentLink.mNext;
+				currentLink = null;
+				System.out.println("found!!"+value);
+				return true;
+			    }
+			else
+			    {
+				mFirst = mFirst.mNext;
+				return true;
+			    }
+		    }
+		previousLink = currentLink;
+		currentLink = currentLink.mNext;
+	    }
+	return false;
+    }
+    
     public void display()
     {
 	System.out.println("Link from first to last:");
@@ -59,8 +104,13 @@ class LinkListApp
 	LinkList lnk = new LinkList();
 	for(int i = 0;i<10;i++)
 	    {
-		lnk.insert((long)(Math.random()*1000.0));
+		lnk.insertFirst((long)(i));
 	    }
+	lnk.display();
+	lnk.find(1).display();
+	lnk.delete(7);
+	lnk.display();
+	lnk.delete(9);
 	lnk.display();
 	
     }
