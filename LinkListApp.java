@@ -18,22 +18,47 @@ class Link
 class LinkList
 {
     private Link mFirst;
-
+    private Link mLast;
+    
     public LinkList()
     {
 	mFirst = null;
+	mLast = null;
     }
 
     public boolean isEmpty()
     {
-	return (mFirst == null);
+	return (mFirst == null||mLast == null);
     }
 
     public void insertFirst(long value)
     {
 	Link linkInsert = new Link(value,mFirst);
 	mFirst = linkInsert;
+
+	if(isEmpty())
+	    {
+		mLast = mFirst;
+	    }
+	
     }
+
+    public void insertLast(long value)
+    {
+	if(!isEmpty())
+	    {
+		Link linkInsert = new Link(value,null);
+		mLast.mNext = linkInsert;
+		mLast = linkInsert;
+	    }
+	else
+	    {
+		Link linkInsert = new Link(value,null);
+		mLast = linkInsert;
+		mFirst = linkInsert;
+	    }
+    }
+
     public Link deleteFirst()
     {
 	Link temp = mFirst;
@@ -104,13 +129,18 @@ class LinkListApp
 	LinkList lnk = new LinkList();
 	for(int i = 0;i<10;i++)
 	    {
-		lnk.insertFirst((long)(i));
+		lnk.insertLast((long)(i));
 	    }
 	lnk.display();
 	lnk.find(1).display();
 	lnk.delete(7);
 	lnk.display();
 	lnk.delete(9);
+	lnk.display();
+	for(int i = 0;i<10;i++)
+	    {
+		lnk.insertFirst((long)(i));
+	    }
 	lnk.display();
 	
     }
