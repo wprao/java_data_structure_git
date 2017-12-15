@@ -1,6 +1,6 @@
 class HanoiTowerApp
 {
-    static int nDisks = 2;
+    static int nDisks = 10;
     public static void main(String args[])
     {
 	doTower(nDisks,'A','B','C');
